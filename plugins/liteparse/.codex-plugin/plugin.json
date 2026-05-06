@@ -1,0 +1,32 @@
+{
+  "name": "liteparse",
+  "version": "0.1.0",
+  "description": "Local OCR-powered document parsing for PDFs, images and Office files",
+  "author": {
+    "name": "LlamaIndex",
+    "email": "support@runllama.ai",
+    "url": "https://github.com/run-llama"
+  },
+  "homepage": "https://developers.llamaindex.ai/liteparse",
+  "repository": "https://github.com/run-llama/llamaparse-codex-plugins",
+  "license": "MIT",
+  "keywords": ["parsing", "text-extraction", "local", "ocr"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "LiteParse",
+    "shortDescription": "Local OCR-powered document parsing for PDFs, images and Office files",
+    "longDescription": "Parse unstructured documents (PDF, DOCX, PPTX, XLSX, images, and more) locally with LiteParse: fast, lightweight, no cloud dependencies or LLM required.",
+    "developerName": "LlamaIndex",
+    "category": "Documents",
+    "capabilities": ["Interactive"],
+    "websiteURL": "https://llamaindex.ai/",
+    "privacyPolicyURL": "https://www.llamaindex.ai/legal/privacy-notice",
+    "termsOfServiceURL": "https://www.llamaindex.ai/legal/terms-of-service",
+    "defaultPrompt": [
+      "Use this skill when the user wants to parse, extract text from, screenshot, or batch-process unstructured files (PDF, DOCX, PPTX, XLSX, images, etc.) locally without cloud dependencies, using LiteParse."
+    ],
+    "brandColor": "#92AEFF",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png"
+  }
+}

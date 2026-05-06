@@ -1,0 +1,33 @@
+{
+  "name": "llamaparse-mcp",
+  "version": "0.1.0",
+  "description": "Unlock document processing workflows with the LlamaParse Platform MCP",
+  "author": {
+    "name": "LlamaIndex",
+    "email": "support@runllama.ai",
+    "url": "https://github.com/run-llama"
+  },
+  "homepage": "https://developers.llamaindex.ai/llamaparse",
+  "repository": "https://github.com/run-llama/llamaparse-codex-plugins",
+  "license": "MIT",
+  "keywords": ["parsing", "agentic-ai", "mcp", "ocr"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "LlamaParse MCP",
+    "shortDescription": "Unlock document processing workflows with the LlamaParse Platform MCP",
+    "longDescription": "Connect your agent to the LlamaParse Platform MCP and unlock access to document processing tools like Parse, Split and Classify.",
+    "developerName": "LlamaIndex",
+    "category": "Documents",
+    "capabilities": ["Interactive"],
+    "websiteURL": "https://llamaindex.ai/",
+    "privacyPolicyURL": "https://www.llamaindex.ai/legal/privacy-notice",
+    "termsOfServiceURL": "https://www.llamaindex.ai/legal/terms-of-service",
+    "defaultPrompt": [
+      "Use the LlamaParse MCP when in need for document processing utilities to parse, split or classify a document."
+    ],
+    "brandColor": "#FFBD74",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png"
+  }
+}

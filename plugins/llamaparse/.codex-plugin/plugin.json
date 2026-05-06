@@ -1,0 +1,32 @@
+{
+  "name": "llamaparse",
+  "version": "0.1.0",
+  "description": "Advanced OCR and document parsing in the cloud",
+  "author": {
+    "name": "LlamaIndex",
+    "email": "support@runllama.ai",
+    "url": "https://github.com/run-llama"
+  },
+  "homepage": "https://developers.llamaindex.ai/llamaparse",
+  "repository": "https://github.com/run-llama/llamaparse-codex-plugins",
+  "license": "MIT",
+  "keywords": ["parsing", "agentic-ai", "cloud", "ocr"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "LlamaParse",
+    "shortDescription": "Advanced OCR and document parsing in the cloud",
+    "longDescription": "Parse is an agentic document parser for LLM pipelines—130+ file types, layout-aware, outputs clean markdown, text, or JSON.",
+    "developerName": "LlamaIndex",
+    "category": "Documents",
+    "capabilities": ["Interactive"],
+    "websiteURL": "https://llamaindex.ai/",
+    "privacyPolicyURL": "https://www.llamaindex.ai/legal/privacy-notice",
+    "termsOfServiceURL": "https://www.llamaindex.ai/legal/terms-of-service",
+    "defaultPrompt": [
+      "Use this skill when the user wants to parse, extract, or read content from an unstructured file (PDF, DOCX, PPTX, XLSX, etc.) using LlamaParse."
+    ],
+    "brandColor": "#FF8DF2",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png"
+  }
+}

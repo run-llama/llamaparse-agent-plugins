@@ -1,0 +1,42 @@
+{
+  "name": "llamaparse-marketplace",
+  "interface": {
+    "displayName": "LlamaParse Codex MarketPlace"
+  },
+  "plugins": [
+    {
+      "name": "liteparse",
+      "source": {
+        "source": "local",
+        "path": "./plugins/liteparse"
+      },
+      "policy": {
+        "installation": "AVAILABLE"
+      },
+      "category": "Documents"
+    },
+    {
+      "name": "llamaparse",
+      "source": {
+        "source": "local",
+        "path": "./plugins/llamaparse"
+      },
+      "policy": {
+        "installation": "AVAILABLE"
+      },
+      "category": "Documents"
+    },
+    {
+      "name": "llamaparse-mcp",
+      "source": {
+        "source": "local",
+        "path": "./plugins/llamaparse-mcp"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Documents"
+    }
+  ]
+}
