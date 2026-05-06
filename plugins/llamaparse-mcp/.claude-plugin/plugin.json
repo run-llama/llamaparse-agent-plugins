@@ -7,6 +7,7 @@
   },
   "mcpServers": {
     "llamaparse-mcp": {
+      "type": "http",
       "url": "https://mcp.llamaindex.ai/mcp"
     }
   }
