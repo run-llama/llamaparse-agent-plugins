@@ -1,0 +1,32 @@
+{
+  "name": "llamaparse-marketplace",
+  "version": "0.1.0",
+  "description": "Connect your agents to the entire LlamaParse stack, from local parsing with LiteParse to cloud-powered workflows with LlamaParse and its MCP",
+  "owner": {
+    "name": "LlamaIndex",
+    "email": "support@llamaindex.ai"
+  },
+  "plugins": [
+    {
+      "name": "liteparse",
+      "description": "Local OCR-powered document parsing for PDFs, images and Office files",
+      "source": "./plugins/liteparse",
+      "category": "documents",
+      "tags": ["parsing", "text-extraction", "local", "ocr"]
+    },
+    {
+      "name": "llamaparse",
+      "description": "Advanced OCR and document parsing in the cloud",
+      "source": "./plugins/llamaparse",
+      "category": "documents",
+      "tags": ["parsing", "agentic-ai", "cloud", "ocr"]
+    },
+    {
+      "name": "llamaparse-mcp",
+      "description": "Unlock document processing workflows with the LlamaParse Platform MCP",
+      "source": "./plugins/llamaparse-mcp",
+      "category": "documents",
+      "tags": ["parsing", "agentic-ai", "mcp", "ocr"]
+    }
+  ]
+}

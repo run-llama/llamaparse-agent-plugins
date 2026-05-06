@@ -1,10 +1,11 @@
-# LlamaParse Codex Plugin Marketplace
+# LlamaParse Agent Plugins Marketplace
 
-This repository contains a local Codex plugin marketplace with three document-focused plugins from LlamaIndex.
+This repository contains local Codex and Claude plugin marketplace definitions with three document-focused plugins from LlamaIndex.
 
 ## Repository Contents
 
 - `.agents/plugins/marketplace.json`: Marketplace definition consumed by Codex.
+- `.claude-plugin/marketplace.json`: Marketplace definition consumed by Claude.
 - `plugins/liteparse`: Local OCR parsing plugin (no cloud dependency).
 - `plugins/llamaparse`: Cloud parsing skill plugin.
 - `plugins/llamaparse-mcp`: LlamaParse Platform MCP plugin (tools for parse/split/classify via MCP).
@@ -14,26 +15,36 @@ This repository contains a local Codex plugin marketplace with three document-fo
 1. `liteparse`
 - Type: Skill plugin
 - Purpose: Parse and extract content from PDFs, Office docs, and images locally.
-- Auth policy in marketplace: `ON_INSTALL`
 
 2. `llamaparse`
 - Type: Skill plugin
 - Purpose: Cloud-based, advanced document parsing.
-- Auth policy in marketplace: no explicit auth gate in marketplace policy
 
 3. `llamaparse-mcp`
 - Type: MCP + skill plugin
 - Purpose: Connects Codex to LlamaParse Platform MCP tools.
 - MCP server config: `plugins/llamaparse-mcp/.mcp.json` -> `https://mcp.llamaindex.ai/mcp`
-- Auth policy in marketplace: `ON_USE`
+- (Codex) Auth policy in marketplace: `ON_USE`
 
 ## Install The Marketplace
+
+### Codex
 
 ```bash
 codex plugin marketplace add run-llama/llamaparse-codex-plugins
 ```
 
-## Enable Plugins In Codex
+### Claude
+
+(within Claude)
+
+```bash
+/plugin marketplace add run-llama/llamaparse-agent-plugins
+```
+
+## Enable Plugins
+
+### Codex
 
 1. Start or reload Codex
 2. Open plugin management in Codex.
@@ -43,13 +54,13 @@ codex plugin marketplace add run-llama/llamaparse-codex-plugins
 - `llamaparse`
 - `llamaparse-mcp`
 
-## Authentication Notes
+**Authentication Notes**
 
 - `liteparse`: No authentication required, runs fully locally.
 - `llamaparse-mcp`: Prompts on first use (`ON_USE`) when invoking MCP tools.
 - `llamaparse`: Follow any in-app prompts for required credentials ([LlamaParse API key](https://cloud.llamaindex.ai/signup)).
 
-## Verify Plugin Availability
+**Verify Plugin Availability**
 
 After enabling plugins, confirm they are available in a Codex thread:
 
@@ -60,6 +71,16 @@ After enabling plugins, confirm they are available in a Codex thread:
 - `splitFile`
 - `classifyFile`
 - `uploadFileByUrl`
+
+### Claude
+
+Within Claude, run:
+
+```bash
+/plugin install llamaparse-marketplace@liteparse
+/plugin install llamaparse-marketplace@llamaparse
+/plugin install llamaparse-marketplace@llamaparse-mcp
+```
 
 ## Quick Smoke Test (LlamaParse MCP)
 
@@ -72,7 +93,24 @@ Expected result: parsed text content is returned.
 ## Development Notes
 
 - Plugin manifests are located at:
-- `plugins/liteparse/.codex-plugin/plugin.json`
-- `plugins/llamaparse/.codex-plugin/plugin.json`
-- `plugins/llamaparse-mcp/.codex-plugin/plugin.json`
+  + `plugins/liteparse/.*-plugin/plugin.json`
+  + `plugins/llamaparse/.*-plugin/plugin.json`
+  + `plugins/llamaparse-mcp/.*-plugin/plugin.json`
 - MCP server mapping is in `plugins/llamaparse-mcp/.mcp.json`.
+
+### Bump version
+
+Bump the version of a plugin for a specific agent with:
+
+```bash
+python3 scripts/bump-version.py <claude|codex> <plugin> --bump <patch|minor|major>
+# if you have uv
+./scripts/bump-version.py <claude|codex> <plugin> --bump <patch|minor|major>
+```
+
+For example:
+
+```bash
+./scripts/bump-version.py codex liteparse --bump minor
+./scripts/bump-version.py claude liteparse --bump minor
+```

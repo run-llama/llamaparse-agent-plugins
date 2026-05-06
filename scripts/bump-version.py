@@ -9,7 +9,6 @@ from pathlib import Path
 from typing import Literal, NamedTuple
 
 PLUGINS_PATH = Path("plugins/")
-PLUGIN_FILE = ".codex-plugin/plugin.json"
 
 BumpType = Literal["patch", "minor", "major"]
 
@@ -47,8 +46,10 @@ def _bump_semver(version: Version, bump_type: BumpType) -> str:
     return _semver_to_str(Version(major=major, minor=minor, patch=patch))
 
 
-def bump_codex_plugin_version(name: str, bump: BumpType) -> None:
-    path = PLUGINS_PATH / name / PLUGIN_FILE
+def bump_plugin_version(
+    agent: Literal["codex", "claude"], name: str, bump: BumpType
+) -> None:
+    path = PLUGINS_PATH / name / f".{agent}-plugin" / "plugin.json"
     with open(path, "r") as f:
         data = json.load(f)
     version = data.get("version")
@@ -59,11 +60,17 @@ def bump_codex_plugin_version(name: str, bump: BumpType) -> None:
     data["version"] = new_vers
     with open(path, "w") as f:
         json.dump(data, f, indent=2)
-    print(f"Successfully bumped {name} version: {_semver_to_str(vers)} -> {new_vers}")
+    print(
+        f"Successfully bumped {name} ({agent}) version: {_semver_to_str(vers)} -> {new_vers}"
+    )
 
 
 def main() -> None:
     parser = ArgumentParser()
+    parser.add_argument(
+        "agent",
+        help="Agent for which the plugin should be bumped. Supported agents: 'claude', 'codex'",
+    )
     parser.add_argument(
         "name", help="Name of the plugin whose version needs to be bumped"
     )
@@ -74,7 +81,7 @@ def main() -> None:
         choices=["patch", "minor", "major"],
     )
     args = parser.parse_args()
-    bump_codex_plugin_version(args.name, args.bump)
+    bump_plugin_version(args.agent.lower(), args.name, args.bump)
 
 
 if __name__ == "__main__":

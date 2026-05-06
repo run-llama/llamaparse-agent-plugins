@@ -1,0 +1,8 @@
+{
+  "name": "llamaparse",
+  "description": "Advanced OCR and document parsing in the cloud",
+  "version": "0.1.0",
+  "author": {
+    "name": "LlamaIndex"
+  }
+}
