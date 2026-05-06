@@ -87,8 +87,9 @@ Within Claude, run:
 Invoke the plugins as slash commands directly within Claude:
 
 ```bash
-/liteparse:liteparse # -> run liteparse skill
-
+/liteparse:liteparse # -> run LiteParse skill
+/llamaparse:llamaparse # -> run LlamaParse skill
+/llamaparse-mcp:llamaparse-mcp # -> enable LlamaParse MCP and its skill
 ```
 
 ## Quick Smoke Test (LlamaParse MCP)
