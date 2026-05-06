@@ -1,5 +1,7 @@
 {
-  "llamaparse-mcp": {
-    "url": "https://mcp.llamaindex.ai/mcp"
+  "mcpServers": {
+    "llamaparse-mcp": {
+      "url": "https://mcp.llamaindex.ai/mcp"
+    }
   }
 }

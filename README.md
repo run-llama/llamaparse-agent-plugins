@@ -77,9 +77,18 @@ After enabling plugins, confirm they are available in a Codex thread:
 Within Claude, run:
 
 ```bash
-/plugin install llamaparse-marketplace@liteparse
-/plugin install llamaparse-marketplace@llamaparse
-/plugin install llamaparse-marketplace@llamaparse-mcp
+/plugin install liteparse@llamaparse-marketplace
+/plugin install llamaparse@llamaparse-marketplace
+/plugin install llamaparse-mcp@llamaparse-marketplace
+```
+
+**Use plugins**
+
+Invoke the plugins as slash commands directly within Claude:
+
+```bash
+/liteparse:liteparse # -> run liteparse skill
+
 ```
 
 ## Quick Smoke Test (LlamaParse MCP)
