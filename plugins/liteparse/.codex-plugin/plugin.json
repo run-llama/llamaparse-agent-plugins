@@ -1,6 +1,6 @@
 {
   "name": "liteparse",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Local OCR-powered document parsing for PDFs, images and Office files",
   "author": {
     "name": "LlamaIndex",
