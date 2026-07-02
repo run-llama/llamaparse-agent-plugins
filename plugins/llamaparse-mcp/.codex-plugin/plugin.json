@@ -1,7 +1,7 @@
 {
   "name": "llamaparse-mcp",
-  "version": "0.1.0",
-  "description": "Unlock document processing workflows with the LlamaParse Platform MCP",
+  "version": "0.2.0",
+  "description": "Unlock document processing and Index v2 retrieval workflows with the LlamaParse Platform MCP",
   "author": {
     "name": "LlamaIndex",
     "email": "support@llamaindex.ai",
@@ -10,21 +10,30 @@
   "homepage": "https://developers.llamaindex.ai/llamaparse",
   "repository": "https://github.com/run-llama/llamaparse-codex-plugins",
   "license": "MIT",
-  "keywords": ["parsing", "agentic-ai", "mcp", "ocr"],
+  "keywords": [
+    "parsing",
+    "retrieval",
+    "agentic-ai",
+    "mcp",
+    "ocr"
+  ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "LlamaParse MCP",
-    "shortDescription": "Unlock document processing workflows with the LlamaParse Platform MCP",
-    "longDescription": "Connect your agent to the LlamaParse Platform MCP and unlock access to document processing tools like Parse, Split and Classify.",
+    "shortDescription": "Unlock document processing and Index v2 retrieval workflows with the LlamaParse Platform MCP",
+    "longDescription": "Connect your agent to the LlamaParse Platform MCP and unlock access to document processing tools like Parse, Split and Classify, plus agentic retrieval over Index v2 knowledge bases.",
     "developerName": "LlamaIndex",
     "category": "Documents",
-    "capabilities": ["Interactive"],
+    "capabilities": [
+      "Interactive"
+    ],
     "websiteURL": "https://llamaindex.ai/",
     "privacyPolicyURL": "https://www.llamaindex.ai/legal/privacy-notice",
     "termsOfServiceURL": "https://www.llamaindex.ai/legal/terms-of-service",
     "defaultPrompt": [
-      "Use the LlamaParse MCP when in need for document processing utilities to parse, split or classify a document."
+      "Use the LlamaParse MCP when in need for document processing utilities to parse, split or classify a document.",
+      "Use the LlamaParse MCP Index v2 tools when a question should be answered from documents stored in a LlamaCloud Index v2 knowledge base."
     ],
     "brandColor": "#FFBD74",
     "composerIcon": "./assets/icon.png",
