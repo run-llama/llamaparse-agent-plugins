@@ -23,10 +23,10 @@
     },
     {
       "name": "llamaparse-mcp",
-      "description": "Unlock document processing workflows with the LlamaParse Platform MCP",
+      "description": "Unlock document processing and Index v2 retrieval workflows with the LlamaParse Platform MCP",
       "source": "./plugins/llamaparse-mcp",
       "category": "documents",
-      "tags": ["parsing", "agentic-ai", "mcp", "ocr"]
+      "tags": ["parsing", "retrieval", "agentic-ai", "mcp", "ocr"]
     }
   ]
 }

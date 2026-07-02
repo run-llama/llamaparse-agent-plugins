@@ -8,7 +8,7 @@ This repository contains local Codex and Claude plugin marketplace definitions w
 - `.claude-plugin/marketplace.json`: Marketplace definition consumed by Claude.
 - `plugins/liteparse`: Local OCR parsing plugin (no cloud dependency).
 - `plugins/llamaparse`: Cloud parsing skill plugin.
-- `plugins/llamaparse-mcp`: LlamaParse Platform MCP plugin (tools for parse/split/classify via MCP).
+- `plugins/llamaparse-mcp`: LlamaParse Platform MCP plugin (tools for parse/split/classify plus Index v2 retrieval via MCP).
 
 ## Plugins Included
 
@@ -21,8 +21,9 @@ This repository contains local Codex and Claude plugin marketplace definitions w
 - Purpose: Cloud-based, advanced document parsing.
 
 3. `llamaparse-mcp`
-- Type: MCP + skill plugin
-- Purpose: Connects Codex to LlamaParse Platform MCP tools.
+- Type: MCP + skills plugin
+- Purpose: Connects Codex to LlamaParse Platform MCP tools (document processing and Index v2 retrieval).
+- Skills: `llamaparse-mcp` (parse/split/classify usage guide) and `llamacloud-index` (agentic retrieval over Index v2 knowledge bases).
 - MCP server config: `plugins/llamaparse-mcp/.mcp.json` -> `https://mcp.llamaindex.ai/mcp`
 - (Codex) Auth policy in marketplace: `ON_USE`
 
@@ -65,12 +66,14 @@ codex plugin marketplace add run-llama/llamaparse-codex-plugins
 After enabling plugins, confirm they are available in a Codex thread:
 
 - `liteparse` skill should appear as `liteparse:liteparse`.
-- `llamaparse-mcp` skill should appear as `llamaparse-mcp:llamaparse-mcp`.
+- `llamaparse-mcp` skills should appear as `llamaparse-mcp:llamaparse-mcp` and `llamaparse-mcp:llamacloud-index`.
 - MCP tools should include operations like:
 - `parseFile`
 - `splitFile`
 - `classifyFile`
 - `uploadFileByUrl`
+- `listIndexes`
+- `retrieveFromIndex`
 
 ### Claude
 
@@ -89,7 +92,8 @@ Invoke the plugins as slash commands directly within Claude:
 ```bash
 /liteparse:liteparse # -> run LiteParse skill
 /llamaparse:llamaparse # -> run LlamaParse skill
-/llamaparse-mcp:llamaparse-mcp # -> enable LlamaParse MCP and its skill
+/llamaparse-mcp:llamaparse-mcp # -> enable LlamaParse MCP and its document-processing skill
+/llamaparse-mcp:llamacloud-index # -> enable LlamaParse MCP and its Index v2 agentic-retrieval skill
 ```
 
 ## Quick Smoke Test (LlamaParse MCP)
@@ -99,6 +103,13 @@ Invoke the plugins as slash commands directly within Claude:
 3. Call `parseFile` with the returned `fileId`.
 
 Expected result: parsed text content is returned.
+
+## Quick Smoke Test (Index v2)
+
+1. Call `listIndexes` to confirm at least one index is visible.
+2. Call `retrieveFromIndex` with a natural-language question against one of the returned indexes.
+
+Expected result: relevant passages from your indexed documents are returned.
 
 ## Development Notes
 

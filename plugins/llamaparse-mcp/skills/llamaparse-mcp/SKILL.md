@@ -69,6 +69,10 @@ Common multi-step patterns:
 - **Split then parse** — split a composite document into segments, then call `parseFile` on each segment's pages separately (re-upload the relevant pages if needed).
 - **Upload once, process multiple ways** — a single `fileId` can be passed to `parseFile`, `classifyFile`, and `splitFile` independently; you do not need to re-upload.
 
+## Index v2 Retrieval
+
+The server also exposes Index v2 knowledge-base tools (`getUserProjects`, `listIndexes`, `findFilesInIndex`, `readFileFromIndex`, `grepFileFromIndex`, `retrieveFromIndex`). Their usage — the agentic-retrieval workflow, tool selection, and grounding rules — is covered by the `llamacloud-index` skill bundled in this plugin; consult that skill when a task involves retrieving answers from an index.
+
 ## Rate Limits
 
 The server enforces a per-user rate limit. If you receive a rate limit error, read the `Retry-After` value from the response and wait that many seconds before retrying. Do not retry immediately in a loop.

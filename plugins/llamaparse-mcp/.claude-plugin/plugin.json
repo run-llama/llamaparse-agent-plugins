@@ -1,7 +1,7 @@
 {
   "name": "llamaparse-mcp",
-  "description": "Unlock document processing workflows with the LlamaParse Platform MCP",
-  "version": "0.1.0",
+  "description": "Unlock document processing and Index v2 retrieval workflows with the LlamaParse Platform MCP",
+  "version": "0.2.0",
   "author": {
     "name": "LlamaIndex"
   },
