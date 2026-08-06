@@ -135,6 +135,34 @@ Expected result: relevant passages from your indexed documents are returned.
   + `plugins/llamaparse-mcp-eu/.*-plugin/plugin.json`
 - MCP server mapping is in `plugins/llamaparse-mcp/.mcp.json` and `plugins/llamaparse-mcp-eu/.mcp.json`.
 
+### Validate
+
+CI runs this on every pull request, and it is worth running before you push:
+
+```bash
+python3 scripts/validate-marketplace.py
+```
+
+It checks that both marketplace manifests list the same plugins, that every registered plugin
+exists on disk (and vice versa), that each `plugin.json` name matches its directory, that the
+Claude and Codex versions of a plugin agree, that `.mcp.json` and the inline `mcpServers` block
+declare the same server, that no two plugins claim the same MCP server key, and that every skill
+directory has a `SKILL.md`.
+
+### Keeping skills in sync
+
+`plugins/*/skills/llamaparse-mcp/SKILL.md` is a **copy** of the file in
+[`run-llama/mcp-llamaindex-ai`](https://github.com/run-llama/mcp-llamaindex-ai/blob/main/skills/llamaparse-mcp/SKILL.md).
+Edit it there first, then carry the change here — there is no automation, so it drifts silently.
+
+Two deltas are intentional and should survive a sync: the `Index v2 Retrieval` section (which
+points at the sibling `llamacloud-index` skill, something the upstream server repo has no notion
+of), and the cross-region `401` advice (upstream tells the user to repoint their client, which a
+plugin user cannot do because the URL is fixed in the manifest — here the instruction is to
+install the sibling regional plugin).
+
+`skills/llamacloud-index/SKILL.md` has no upstream and is owned by this repository.
+
 ### Bump version
 
 Bump the version of a plugin for a specific agent with:
