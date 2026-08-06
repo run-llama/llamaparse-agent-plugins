@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "llamaparse-mcp-eu": {
+      "type": "http",
+      "url": "https://mcp.eu.llamaindex.ai/mcp"
+    }
+  }
+}

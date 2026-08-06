@@ -1,6 +1,6 @@
 # LlamaParse Agent Plugins Marketplace
 
-This repository contains local Codex and Claude plugin marketplace definitions with three document-focused plugins from LlamaIndex.
+This repository contains local Codex and Claude plugin marketplace definitions with four document-focused plugins from LlamaIndex.
 
 ## Repository Contents
 
@@ -9,6 +9,7 @@ This repository contains local Codex and Claude plugin marketplace definitions w
 - `plugins/liteparse`: Local OCR parsing plugin (no cloud dependency).
 - `plugins/llamaparse`: Cloud parsing skill plugin.
 - `plugins/llamaparse-mcp`: LlamaParse Platform MCP plugin (tools for parse/split/classify plus Index v2 retrieval via MCP).
+- `plugins/llamaparse-mcp-eu`: the same plugin pointed at the Europe region.
 
 ## Plugins Included
 
@@ -26,6 +27,16 @@ This repository contains local Codex and Claude plugin marketplace definitions w
 - Skills: `llamaparse-mcp` (parse/split/classify usage guide) and `llamacloud-index` (agentic retrieval over Index v2 knowledge bases).
 - MCP server config: `plugins/llamaparse-mcp/.mcp.json` -> `https://mcp.llamaindex.ai/mcp`
 - (Codex) Auth policy in marketplace: `ON_USE`
+
+4. `llamaparse-mcp-eu`
+- Type: MCP + skills plugin
+- Purpose: identical to `llamaparse-mcp`, pointed at the Europe region.
+- MCP server config: `plugins/llamaparse-mcp-eu/.mcp.json` -> `https://mcp.eu.llamaindex.ai/mcp`
+- (Codex) Auth policy in marketplace: `ON_USE`
+
+Install whichever matches your LlamaCloud account: `cloud.llamaindex.ai` -> `llamaparse-mcp`,
+`cloud.eu.llamaindex.ai` -> `llamaparse-mcp-eu`. Region is a property of the account, not a
+per-session choice, and a token issued in one region is rejected by the other.
 
 ## Install The Marketplace
 
@@ -54,11 +65,12 @@ codex plugin marketplace add run-llama/llamaparse-codex-plugins
 - `liteparse`
 - `llamaparse`
 - `llamaparse-mcp`
+- `llamaparse-mcp-eu`
 
 **Authentication Notes**
 
 - `liteparse`: No authentication required, runs fully locally.
-- `llamaparse-mcp`: Prompts on first use (`ON_USE`) when invoking MCP tools.
+- `llamaparse-mcp` / `llamaparse-mcp-eu`: Prompts on first use (`ON_USE`) when invoking MCP tools.
 - `llamaparse`: Follow any in-app prompts for required credentials ([LlamaParse API key](https://cloud.llamaindex.ai/signup)).
 
 **Verify Plugin Availability**
@@ -66,7 +78,7 @@ codex plugin marketplace add run-llama/llamaparse-codex-plugins
 After enabling plugins, confirm they are available in a Codex thread:
 
 - `liteparse` skill should appear as `liteparse:liteparse`.
-- `llamaparse-mcp` skills should appear as `llamaparse-mcp:llamaparse-mcp` and `llamaparse-mcp:llamacloud-index`.
+- `llamaparse-mcp` skills should appear as `llamaparse-mcp:llamaparse-mcp` and `llamaparse-mcp:llamacloud-index` (or `llamaparse-mcp-eu:*` for the Europe plugin).
 - MCP tools should include operations like:
 - `parseFile`
 - `splitFile`
@@ -83,6 +95,7 @@ Within Claude, run:
 /plugin install liteparse@llamaparse-marketplace
 /plugin install llamaparse@llamaparse-marketplace
 /plugin install llamaparse-mcp@llamaparse-marketplace
+/plugin install llamaparse-mcp-eu@llamaparse-marketplace
 ```
 
 **Use plugins**
@@ -94,6 +107,8 @@ Invoke the plugins as slash commands directly within Claude:
 /llamaparse:llamaparse # -> run LlamaParse skill
 /llamaparse-mcp:llamaparse-mcp # -> enable LlamaParse MCP and its document-processing skill
 /llamaparse-mcp:llamacloud-index # -> enable LlamaParse MCP and its Index v2 agentic-retrieval skill
+/llamaparse-mcp-eu:llamaparse-mcp # -> same, against the Europe region
+/llamaparse-mcp-eu:llamacloud-index # -> same, against the Europe region
 ```
 
 ## Quick Smoke Test (LlamaParse MCP)
@@ -117,7 +132,8 @@ Expected result: relevant passages from your indexed documents are returned.
   + `plugins/liteparse/.*-plugin/plugin.json`
   + `plugins/llamaparse/.*-plugin/plugin.json`
   + `plugins/llamaparse-mcp/.*-plugin/plugin.json`
-- MCP server mapping is in `plugins/llamaparse-mcp/.mcp.json`.
+  + `plugins/llamaparse-mcp-eu/.*-plugin/plugin.json`
+- MCP server mapping is in `plugins/llamaparse-mcp/.mcp.json` and `plugins/llamaparse-mcp-eu/.mcp.json`.
 
 ### Bump version
 
