@@ -37,6 +37,18 @@
         "authentication": "ON_USE"
       },
       "category": "Documents"
+    },
+    {
+      "name": "llamaparse-mcp-eu",
+      "source": {
+        "source": "local",
+        "path": "./plugins/llamaparse-mcp-eu"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Documents"
     }
   ]
 }

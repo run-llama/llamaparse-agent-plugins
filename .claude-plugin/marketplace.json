@@ -27,6 +27,13 @@
       "source": "./plugins/llamaparse-mcp",
       "category": "documents",
       "tags": ["parsing", "retrieval", "agentic-ai", "mcp", "ocr"]
+    },
+    {
+      "name": "llamaparse-mcp-eu",
+      "description": "Unlock document processing and Index v2 retrieval workflows with the LlamaParse Platform MCP (Europe region)",
+      "source": "./plugins/llamaparse-mcp-eu",
+      "category": "documents",
+      "tags": ["parsing", "retrieval", "agentic-ai", "mcp", "ocr", "eu"]
     }
   ]
 }
