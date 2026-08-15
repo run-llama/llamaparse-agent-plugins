@@ -1,10 +1,17 @@
 {
   "name": "llamaparse-mcp",
+  "displayName": "LlamaParse MCP",
   "description": "Unlock document processing and Index v2 retrieval workflows with the LlamaParse Platform MCP",
   "version": "0.2.0",
   "author": {
-    "name": "LlamaIndex"
+    "name": "LlamaIndex",
+    "email": "support@llamaindex.ai",
+    "url": "https://github.com/run-llama"
   },
+  "homepage": "https://developers.llamaindex.ai/llamaparse",
+  "repository": "https://github.com/run-llama/llamaparse-agent-plugins",
+  "license": "MIT",
+  "keywords": ["parsing", "retrieval", "agentic-ai", "mcp", "ocr"],
   "mcpServers": {
     "llamaparse-mcp": {
       "type": "http",

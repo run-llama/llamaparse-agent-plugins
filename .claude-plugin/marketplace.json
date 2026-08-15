@@ -4,35 +4,76 @@
   "description": "Connect your agents to the entire LlamaParse stack, from local parsing with LiteParse to cloud-powered workflows with LlamaParse and its MCP",
   "owner": {
     "name": "LlamaIndex",
-    "email": "support@llamaindex.ai"
+    "email": "support@llamaindex.ai",
+    "url": "https://github.com/run-llama"
   },
   "plugins": [
     {
       "name": "liteparse",
-      "description": "Local OCR-powered document parsing for PDFs, images and Office files",
+      "displayName": "LiteParse",
+      "description": "Parse unstructured documents (PDF, DOCX, PPTX, XLSX, images, and more) locally with LiteParse: fast, lightweight, no cloud dependencies or LLM required.",
       "source": "./plugins/liteparse",
+      "homepage": "https://developers.llamaindex.ai/liteparse",
+      "repository": "https://github.com/run-llama/llamaparse-agent-plugins",
+      "license": "MIT",
+      "author": {
+        "name": "LlamaIndex",
+        "email": "support@llamaindex.ai",
+        "url": "https://github.com/run-llama"
+      },
       "category": "documents",
+      "keywords": ["parsing", "text-extraction", "local", "ocr"],
       "tags": ["parsing", "text-extraction", "local", "ocr"]
     },
     {
       "name": "llamaparse",
-      "description": "Advanced OCR and document parsing in the cloud",
+      "displayName": "LlamaParse",
+      "description": "Parse is an agentic document parser for LLM pipelines—130+ file types, layout-aware, outputs clean markdown, text, or JSON.",
       "source": "./plugins/llamaparse",
+      "homepage": "https://developers.llamaindex.ai/llamaparse",
+      "repository": "https://github.com/run-llama/llamaparse-agent-plugins",
+      "license": "MIT",
+      "author": {
+        "name": "LlamaIndex",
+        "email": "support@llamaindex.ai",
+        "url": "https://github.com/run-llama"
+      },
       "category": "documents",
+      "keywords": ["parsing", "agentic-ai", "cloud", "ocr"],
       "tags": ["parsing", "agentic-ai", "cloud", "ocr"]
     },
     {
       "name": "llamaparse-mcp",
-      "description": "Unlock document processing and Index v2 retrieval workflows with the LlamaParse Platform MCP",
+      "displayName": "LlamaParse MCP",
+      "description": "Connect your agent to the LlamaParse Platform MCP and unlock access to document processing tools like Parse, Split and Classify, plus agentic retrieval over Index v2 knowledge bases.",
       "source": "./plugins/llamaparse-mcp",
+      "homepage": "https://developers.llamaindex.ai/llamaparse",
+      "repository": "https://github.com/run-llama/llamaparse-agent-plugins",
+      "license": "MIT",
+      "author": {
+        "name": "LlamaIndex",
+        "email": "support@llamaindex.ai",
+        "url": "https://github.com/run-llama"
+      },
       "category": "documents",
+      "keywords": ["parsing", "retrieval", "agentic-ai", "mcp", "ocr"],
       "tags": ["parsing", "retrieval", "agentic-ai", "mcp", "ocr"]
     },
     {
       "name": "llamaparse-mcp-eu",
-      "description": "Unlock document processing and Index v2 retrieval workflows with the LlamaParse Platform MCP (Europe region)",
+      "displayName": "LlamaParse MCP (EU)",
+      "description": "Connect your agent to the LlamaParse Platform MCP in the Europe region and unlock access to document processing tools like Parse, Split and Classify, plus agentic retrieval over Index v2 knowledge bases. Use this plugin if your LlamaCloud account lives on cloud.eu.llamaindex.ai; accounts on cloud.llamaindex.ai should install llamaparse-mcp instead.",
       "source": "./plugins/llamaparse-mcp-eu",
+      "homepage": "https://developers.llamaindex.ai/llamaparse",
+      "repository": "https://github.com/run-llama/llamaparse-agent-plugins",
+      "license": "MIT",
+      "author": {
+        "name": "LlamaIndex",
+        "email": "support@llamaindex.ai",
+        "url": "https://github.com/run-llama"
+      },
       "category": "documents",
+      "keywords": ["parsing", "retrieval", "agentic-ai", "mcp", "ocr", "eu"],
       "tags": ["parsing", "retrieval", "agentic-ai", "mcp", "ocr", "eu"]
     }
   ]
