@@ -1,6 +1,6 @@
 {
   "name": "llamaparse-mcp-eu",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Unlock document processing and Index v2 retrieval workflows with the LlamaParse Platform MCP (Europe region)",
   "author": {
     "name": "LlamaIndex",

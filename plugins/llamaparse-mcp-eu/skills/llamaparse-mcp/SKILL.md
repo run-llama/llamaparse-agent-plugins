@@ -71,6 +71,22 @@ Common multi-step patterns:
 - **Split then parse** — split a composite document into segments, then call `parseFile` on each segment's pages separately (re-upload the relevant pages if needed).
 - **Upload once, process multiple ways** — a single `fileId` can be passed to `parseFile`, `classifyFile`, and `splitFile` independently; you do not need to re-upload.
 
+## Creating a Project API Key
+
+`createProjectApiKey` mints a LlamaCloud API key scoped to one project, for handing to an
+application or a teammate. Use it when the user asks for a key to wire something up; do not
+call it speculatively, and never to work around an authentication error on another tool.
+
+- `projectId` is required. Call `getUserProjects` first and, if which project is meant is not
+  obvious, ask the user rather than guessing — the key is only usable against the project you pick.
+- Set `name` to something a human will recognise later. It is what someone reads when deciding
+  whether a key is still needed.
+- The secret is returned once and cannot be read back. Give it to the user in your reply and say
+  plainly that it will not be shown again. Do not write it to a file or echo it into a shell
+  command where it would land in history.
+- Every key expires, in 90 days by default and at most 90 days. If the user needs a longer-lived
+  or non-expiring key, point them at Settings → API Keys in the web UI instead.
+
 ## Index v2 Retrieval
 
 The server also exposes Index v2 knowledge-base tools (`getUserProjects`, `listIndexes`, `findFilesInIndex`, `readFileFromIndex`, `grepFileFromIndex`, `retrieveFromIndex`). Their usage — the agentic-retrieval workflow, tool selection, and grounding rules — is covered by the `llamacloud-index` skill bundled in this plugin; consult that skill when a task involves retrieving answers from an index.
